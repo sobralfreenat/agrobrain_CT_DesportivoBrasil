@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,95 +17,78 @@
         input { width: 100%; box-sizing: border-box; }
         #total { margin-top: 20px; }
         .logo { max-width: 200px; margin-bottom: 20px; }
+        
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
 
-p {
-    line-height: 1.6;
-    margin-bottom: 20px; /* Aumenta o espaçamento entre parágrafos */
-  padding-left: 20px;
-  
-}
+        h1, h2, h3 {
+            margin: 10px 0;
+            padding-left: 20px;
+            font-weight: bold;
+        }
 
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
 
+        li {
+            margin-bottom: 15px;
+        }
 
-h1 {
-    margin: 10px 0;
-    padding-left: 20px; /* Para adicionar um recuo ao texto da lista */
-    font-weight: bold; /* Garante que o texto fique em negrito */
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            overflow-x: auto;
+        }
 
-h2 {
-    margin: 10px 0;
-    padding-left: 20px; /* Para adicionar um recuo ao texto da lista */
-    font-weight: bold; /* Garante que o texto fique em negrito */
-}
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            word-wrap: break-word;
+        }
 
-h3 {
-    margin: 30px 0;
-    padding-left: 20px; /* Para adicionar um recuo ao texto da lista */
-    font-weight: bold; /* Garante que o texto fique em negrito */
-}
+        th {
+            background-color: #f2f2f2;
+        }
 
+        @media (max-width: 600px) {
+            table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
 
-ul {
-    margin: 10px 0;
-    padding-left: 20px; /* Para adicionar um recuo ao texto da lista */
-}
+            th, td {
+                display: block;
+                text-align: right;
+            }
 
-li {
-    margin-bottom: 15px; /* Aumenta o espaçamento entre os itens da lista */
-}
+            th {
+                position: absolute;
+                top: -9999px;
+            }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    overflow-x: auto; /* Permite rolagem horizontal em telas menores */
-}
+            td {
+                border: none;
+                position: relative;
+                padding-left: 50%;
+            }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-    word-wrap: break-word; /* Quebra palavras longas se necessário */
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-@media (max-width: 600px) {
-    table {
-        display: block; /* Torna a tabela um bloco em telas pequenas */
-        overflow-x: auto; /* Permite rolagem horizontal */
-        white-space: nowrap; /* Impede quebra de linha em células */
-    }
-
-    th, td {
-        display: block; /* Cada célula da tabela se torna um bloco */
-        text-align: right; /* Alinha o texto à direita */
-    }
-
-    th {
-        position: absolute; /* Coloca os cabeçalhos fora da rolagem */
-        top: -9999px; /* Oculta os cabeçalhos */
-    }
-
-    td {
-        border: none; /* Remove bordas das células */
-        position: relative; /* Para permitir posicionamento */
-        padding-left: 50%; /* Adiciona espaço para o texto */
-    }
-
-    td:before {
-        content: attr(data-label); /* Usa o atributo data-label para mostrar o cabeçalho */
-        position: absolute;
-        left: 10px; /* Alinhamento do cabeçalho */
-        width: calc(50% - 20px); /* Largura do cabeçalho */
-        white-space: nowrap; /* Impede quebra de linha */
-        text-align: left; /* Alinha à esquerda */
-    }
-}
-
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 10px;
+                width: calc(50% - 20px);
+                white-space: nowrap;
+                text-align: left;
+            }
+        }
     </style>
     <script>
         function openWindow(url) {
@@ -121,7 +103,11 @@ th {
                 const cost = parseFloat(row.querySelector("td:nth-child(4) input").value) || 0;
                 total += quantity * cost;
             });
-            document.getElementById("total-value").innerText = total.toFixed(2);
+            document.getElementById("total-value").innerText = formatCurrency(total);
+        }
+
+        function formatCurrency(value) {
+            return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
     </script>
 </head>
@@ -132,108 +118,94 @@ th {
     class="logo" 
     style="max-width: 1280px; height: auto; position: relative; top: 20px; left: 20px;">
 
-<!-- Imagem 2 com largura máxima de 23% da largura do contêiner e posicionamento absoluto -->
 <img 
     src="https://d1yei2z3i6k35z.cloudfront.net/3119789/66db2455c384a_Logosprovisorio.png" 
     alt="Logo" 
     class="logo" 
     style="max-width: 23%; height: auto; position: relative; top: -31px; left: 200px;">
 
+<h1>Departamento de Compras - Desportivo Brasil</h1>
+<h3> CNPJ: 07.695.300/0001-81 </h3>
+<h2>Aos cuidados de Tainá Baptista</h2>
+<p>Prezada Tainá Baptista e proprietários do Desportivo Brasil,</p>
+<p>É com imensa alegria que apresentamos nossa proposta comercial para o investimento na aquisição e implantação de uma usina fotovoltaica nas dependências do Centro de Treinamento.</p>
+<br>
+<h2>Por que investir em energia solar?</h2>
+<ul>
+    <li><strong>Fonte renovável e gratuita:</strong> O sol é uma fonte inesgotável disponível em todo o Brasil.</li>
+    <li><strong>Economia significativa:</strong> Um sistema fotovoltaico pode reduzir até 95% dos gastos com energia.</li>
+    <li><strong>Retorno sobre o investimento:</strong> O valor investido se paga ao longo dos anos, gerando lucro.</li>
+    <li><strong>Baixa manutenção:</strong> Sistema silencioso e seguro, com mínima necessidade de cuidados.</li>
+    <li><strong>Custos competitivos:</strong> Os preços estão cada vez mais acessíveis no mercado.</li>
+    <li><strong>Payback rápido:</strong> O retorno sobre o investimento é estimado em 3 anos e 3 meses.</li>
+    <li><strong>Sustentabilidade:</strong> Fundamental para um futuro mais consciente e responsável.</li>
+</ul>
+<br>
+<h2>Estimativa de Economia</h2>
+<p>Estimamos uma economia mensal aproximada de R$ 20 mil, conforme detalhado nas páginas seguintes, tanto para contas de energia de baixa quanto de média tensão.</p>
 
+<h2>Integração Arquitetônica</h2>
+<p>A energia solar pode ser integrada de diversas formas nas edificações. Além dos coletores térmicos, os módulos fotovoltaicos podem ser utilizados como material de vedação, contribuindo para a estética e funcionalidade dos edifícios.</p>
 
-    <h1>Departamento de Compras - Desportivo Brasil</h1>
-	<h3> CNPJ: 07.695.300/0001-81 </h3>
-    <h2>Aos cuidados de Tainá Baptista</h2>
-    <p>Prezada Tainá Baptista e proprietários do Desportivo Brasil,</p>
-    <p>É com imensa alegria que apresentamos nossa proposta comercial para o investimento na aquisição e implantação de uma usina fotovoltaica nas dependências do Centro de Treinamento.</p>
-    <br>
-    <h2>Por que investir em energia solar?</h2>
-    <ul>
-        <li><strong>Fonte renovável e gratuita:</strong> O sol é uma fonte inesgotável disponível em todo o Brasil.</li>
-        <li><strong>Economia significativa:</strong> Um sistema fotovoltaico pode reduzir até 95% dos gastos com energia.</li>
-        <li><strong>Retorno sobre o investimento:</strong> O valor investido se paga ao longo dos anos, gerando lucro.</li>
-        <li><strong>Baixa manutenção:</strong> Sistema silencioso e seguro, com mínima necessidade de cuidados.</li>
-        <li><strong>Custos competitivos:</strong> Os preços estão cada vez mais acessíveis no mercado.</li>
-        <li><strong>Payback rápido:</strong> O retorno sobre o investimento é estimado em 3 anos e 3 meses.</li>
-        <li><strong>Sustentabilidade:</strong> Fundamental para um futuro mais consciente e responsável.</li>
-    </ul>
-    <br>
-    <h2>Estimativa de Economia</h2>
-    <p>Estimamos uma economia mensal aproximada de R$ 20 mil, conforme detalhado nas páginas seguintes, tanto para contas de energia de baixa quanto de média tensão.</p>
-    
-    <h2>Integração Arquitetônica</h2>
-    <p>A energia solar pode ser integrada de diversas formas nas edificações. Além dos coletores térmicos, os módulos fotovoltaicos podem ser utilizados como material de vedação, contribuindo para a estética e funcionalidade dos edifícios.</p>
-    
-    <h2>Oportunidade de Transformação</h2>
-    <p>A tecnologia fotovoltaica oferece multifunções, permitindo que os módulos não apenas gerem energia, mas também embelezem e iluminem os espaços. Essa é uma chance de transformar o Desportivo Brasil em um benchmark de construção sustentável no mercado esportivo nacional e internacional.</p>
-    
-    <h2>Proposta de Avaliação</h2>
-    <p>Oferecemos, sem custo, a oportunidade de avaliar a integração da energia solar com a arquitetura do Centro de Treinamento, visando torná-lo uma referência em sustentabilidade.</p>
-    
-    <h2>Assessoria Consultiva</h2>
-    <p>Incluímos um serviço de assessoria consultiva por 12 meses, que abrange:</p>
-    <ul>
-        <li><strong>Manutenção e Limpeza:</strong> Garantia de que o sistema opere em sua máxima eficiência.</li>
-        <li><strong>Monitoramento de Performance:</strong> Acompanhamento contínuo do desempenho do sistema.</li>
-        <li><strong>Sessões de Atualizações:</strong> Reuniões periódicas mensais para discutir melhorias e inovações.</li>
-        <li><strong>Seguro:</strong> Proteção contra imprevistos que possam impactar o sistema.</li>
-        <li><strong>Comunicação Bidirecional:</strong> O cliente poderá solicitar necessidades adicionais em economicidade, enquanto nossa equipe alertará sobre eventuais oportunidades de otimização.</li>
-    </ul>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <h2>Itens da Proposta</h2>
-    <table>
-        <thead>
-            <tr>
-                <th class="title">Item</th>
-                <th class="title">Quantidade</th>
-                <th class="title">Duração (meses)</th>
-                <th class="title">Custo (R$)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input type="text" value="Sistema Fotovoltaico  - Usina em Operação prev 6 meses" onchange="calculateTotal()"></td>
-                <td><input type="number" value="1" onchange="calculateTotal()"></td>
-                <td><input type="number" value="6" onchange="calculateTotal()"></td>
-                <td><input type="number" value="930000" onchange="calculateTotal()"></td>
-            </tr>
-            <tr>
-                <td><input type="text" value="Manutenção e Limpeza a cada 6 meses" onchange="calculateTotal()"></td>
-                <td><input type="number" value="1" onchange="calculateTotal()"></td>
-                <td><input type="number" value="12" onchange="calculateTotal()"></td>
-                <td><input type="number" value="20000" onchange="calculateTotal()"></td>
-            </tr>
-            <tr>
-                <td><input type="text" value="Monitoramento de Desempenho" onchange="calculateTotal()"></td>
-                <td><input type="number" value="1" onchange="calculateTotal()"></td>
-                <td><input type="number" value="12" onchange="calculateTotal()"></td>
-                <td><input type="number" value="10000" onchange="calculateTotal()"></td>
-            </tr>
-            <tr>
-                <td><input type="text" value="Seguro do Sistema Anual - Aguardando Cotação" onchange="calculateTotal()"></td>
-                <td><input type="number" value="0" onchange="calculateTotal()"></td>
-                <td><input type="number" value="0" onchange="calculateTotal()"></td>
-                <td><input type="number" value="0" onchange="calculateTotal()"></td> 
-            </tr>
-        </tbody>
-    </table>
-    <br>
-    <div id="total">
-        <h2>Total: R$ <span id="total-value">0.00</span></h2>
-    </div>
-    <br>
-    <h2>Próximos Passos</h2>
-    <p>Cotação do seguro conforme período a ser definido.</p>
-    <br>
-    <p>Agradecemos a atenção e estamos à disposição para quaisquer esclarecimentos.</p>
-    
-    <footer>
-       
+<h2>Oportunidade de Transformação</h2>
+<p>A tecnologia fotovoltaica oferece multifunções, permitindo que os módulos não apenas gerem energia, mas também embelezem e iluminem os espaços. Essa é uma chance de transformar o Desportivo Brasil em um benchmark de construção sustentável no mercado esportivo nacional e internacional.</p>
 
-<!-- <p><a href="#" onclick="openWindow('https://d1yei2z3i6k35z.cloudfront.net/3119789/66db4732ab1fe_Agrobrain_VideoPitch_draft.mp4');">Video de 1 min Sobre nossa Assessoria Consultiva</a></p>
+<h2>Proposta de Avaliação</h2>
+<p>Oferecemos, sem custo, a oportunidade de avaliar a integração da energia solar com a arquitetura do Centro de Treinamento, visando torná-lo uma referência em sustentabilidade.</p>
 
-
- <p><a href="#" onclick="openWindow('https://wa.me/5519997686400?text=Ol%C3%A1%2C%20estou%20interessado%20na%20proposta%20da%20usina%20fotovoltaica.');">Clique aqui para interagirmos</a></p> -->
-    </footer>
-</body>
-</html>
+<h2>Assessoria Consultiva</h2>
+<p>Incluímos um serviço de assessoria consultiva por 12 meses, que abrange:</p>
+<ul>
+    <li><strong>Manutenção e Limpeza:</strong> Garantia de que o sistema opere em sua máxima eficiência.</li>
+    <li><strong>Monitoramento de Performance:</strong> Acompanhamento contínuo do desempenho do sistema.</li>
+    <li><strong>Sessões de Atualizações:</strong> Reuniões periódicas mensais para discutir melhorias e inovações.</li>
+    <li><strong>Seguro:</strong> Proteção contra imprevistos que possam impactar o sistema.</li>
+    <li><strong>Comunicação Bidirecional:</strong> O cliente poderá solicitar necessidades adicionais em economicidade, enquanto nossa equipe alertará sobre eventuais oportunidades de otimização.</li>
+</ul>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h2>Itens da Proposta</h2>
+<table>
+    <thead>
+        <tr>
+            <th class="title">Item</th>
+            <th class="title">Quantidade</th>
+            <th class="title">Duração (meses)</th>
+            <th class="title">Custo (R$)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="text" value="Sistema Fotovoltaico  - Usina em Operação prev 6 meses" onchange="calculateTotal()"></td>
+            <td><input type="number" value="1" onchange="calculateTotal()"></td>
+            <td><input type="number" value="6" onchange="calculateTotal()"></td>
+            <td><input type="number" value="930000" onchange="calculateTotal()"></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Manutenção e Limpeza a cada 6 meses" onchange="calculateTotal()"></td>
+            <td><input type="number" value="1" onchange="calculateTotal()"></td>
+            <td><input type="number" value="12" onchange="calculateTotal()"></td>
+            <td><input type="number" value="20000" onchange="calculateTotal()"></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Monitoramento de Desempenho" onchange="calculateTotal()"></td>
+            <td><input type="number" value="1" onchange="calculateTotal()"></td>
+            <td><input type="number" value="12" onchange="calculateTotal()"></td>
+            <td><input type="number" value="10000" onchange="calculateTotal()"></td>
+        </tr>
+        <tr>
+            <td><input type="text" value="Seguro do Sistema Anual - Aguardando Cotação" onchange="calculateTotal()"></td>
+            <td><input type="number" value="0" onchange="calculateTotal()"></td>
+            <td><input type="number" value="0" onchange="calculateTotal()"></td>
+            <td><input type="number" value="0" onchange="calculateTotal()"></td> 
+        </tr>
+    </tbody>
+</table>
+<br>
+<div id="total">
+    <h2>Total: R$ <span id="total-value">0,00</span></h2>
+</div>
+<br>
+<h2>Próximos Passos</h2>
+<p>Cotação do seguro conforme período a ser definido.</p>
+<br>
+<p>Agradecemos a atenção e estamos à disposição para quaisquer esclarecimentos.</p>
